@@ -1,3 +1,4 @@
+// delete duplicates
 export const categories = [
 	'Adventure',
 	'Classics',
@@ -8,7 +9,6 @@ export const categories = [
 	'Romance',
 	'Science Fiction',
 	'Thriller',
-	'Young Adult',
 	'Short stories',
 	'Non-fiction',
 	'Biography',
