@@ -35,7 +35,7 @@ export const categories = [
 	'Religion',
 	'Spirituality',
 	'Self Help',
-	'Personal Development',
+	'Personal Development',	
 	'Motivational',
 	'Inspirational',
 	'Parenting',
