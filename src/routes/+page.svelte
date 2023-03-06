@@ -1,5 +1,14 @@
-<script>
+<script lang='ts'>
 	import { categories } from '../const/categories'
+
+	let selectedCategories: Array<string> = []
+	let additionalRequest = ''
+
+	function findMeABook() {
+		const categories = selectedCategories.join(',')
+		const request = additionalRequest
+		console.log(categories, request)
+	}
 </script>
 
 <section>
@@ -36,6 +45,7 @@
 				<input
 					type="checkbox"
 					class="form-checkbox h-3 w-3"
+					bind:group={selectedCategories}
 					value={category}
 				/>
 				<span class="ml-2">{category}</span>
@@ -53,12 +63,14 @@
 		<textarea
 			class="w-full p-4 rounded-md"
 			placeholder="I want a book about..."
+			bind:value={additionalRequest}
 		/>
 	</div>
 </section>
 
 <div class="h-16" />
 <button
+	on:click={findMeABook}
 	class="w-full bg-gradient-to-r from-purple-400 to-pink-600 text-white font-semibold p-4 rounded-md"
 >
 	Find me a book
