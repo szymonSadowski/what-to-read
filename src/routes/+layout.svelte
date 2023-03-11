@@ -2,6 +2,6 @@
 	import '../app.css';
 </script>
 
-<main class="max-w-4xl mx-auto w-full p-6">
+<main class="bg-stone-900">
 	<slot />
 </main>
