@@ -1,38 +1,23 @@
-# create-svelte
+# What to Read?
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This simple app is answer to your biggest questions on the weekend. Just select categories, write your preferences and there you go. You have curated list that will satisfy all your reading needs.
 
-## Creating a project
+[WhatToRead](https://what-to-read-szymonsadowski.vercel.app/).
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Technologies used
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+1. [**Svelte:**](https://svelte.dev/) Trying new framework
+2. [**Tailwind:**](https://tailwindcss.com/) utility first CSS framework
+3. [**OpenAI:**](https://openai.com/blog/openai-api) The hottest tech out there. Using their text-davinci model to provide the list
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Getting started
 
-## Developing
+Use our handy CLI command to spin up a MapGame: `yarn` and `yarn dev`. For all functionalities you will need to provide openai key variables. Put them in .env.local file and all should work fine 🚀
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Feature set
 
-```bash
-npm run dev
+This project is something I made in my free time with technologies that I enjoy! [demo](https://what-to-read-szymonsadowski.vercel.app/).
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Have an idea? Notice a bug?
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+We'd love to hear your feedback! Feel free to log an issue on our [GitHub issues page](https://github.com/szymonSadowski/what-to-read/issues). If your question is more personal dms, [![my personal twitter](http://i.imgur.com/tXSoThF.png)](https://twitter.com/DiegoDesperado) are always open as well.

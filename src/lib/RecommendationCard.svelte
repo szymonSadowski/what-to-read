@@ -5,7 +5,7 @@
 	const bookSchema = z.object({
 		docs: z.array(
 			z.object({
-				author_name: z.array(z.string()),
+				author_name: z.array(z.string()).optional(),
 				cover_i: z.number().optional().optional(),
 				first_publish_year: z.number().optional(),
 				number_of_pages_median: z.number().optional(),
