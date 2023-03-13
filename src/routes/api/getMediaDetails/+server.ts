@@ -2,7 +2,6 @@ import { json } from '@sveltejs/kit'
 
 export async function POST({ request }: { request: any }) {
 	const { title } = await request.json()
-
 	// this regex changes spaces to + in titles
 	const titleWithPluses = title.replace(/\s+/g, '+')
 

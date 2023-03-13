@@ -1,4 +1,3 @@
-// delete duplicates
 export const categories = [
 	'Adventure',
 	'Classics',

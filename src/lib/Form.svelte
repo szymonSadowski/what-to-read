@@ -1,6 +1,7 @@
 <script>
 	import LoadingIndicator from './Loading.svelte'
 	import { categories } from '../const/categories'
+	import { bookTypes } from '../const/bookTypes'
 	/**
 	 * @type string
 	 */
@@ -18,15 +19,6 @@
 	 */
 	export let loading
 
-	let bookTypes = [
-		{ value: 'book', title: 'Book' },
-		{ value: 'manga', title: 'Manga' },
-		{ value: 'comic book', title: 'Comic' },
-		{
-			value: 'book, movie or comic book',
-			title: 'Random'
-		}
-	]
 </script>
 
 		<div class="h-8" />

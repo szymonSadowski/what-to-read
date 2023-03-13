@@ -125,8 +125,8 @@
 			/>
 		</div>
 		<div class="md:pb-20 max-w-4xl mx-auto w-full">
+			<div class="h-8" />
 			{#if loading && !searchResponse && !recommendations}
-				<div class="h-8" />
 				<div
 					class="fontsemibold text-sky-50 text-lg text-center"
 				>
@@ -134,7 +134,6 @@
 				</div>
 			{/if}
 			{#if error}
-				<div class="h-8" />
 				<div
 					class="fontsemibold text-lg text-center text-red-500"
 				>
@@ -145,17 +144,15 @@
 				{#each recommendations as recommendation, i (i)}
 					<div>
 						{#if recommendation !== ''}
-							<div class="mb-8">
-								{#if typeof recommendation !== 'string' && recommendation.title}
-									<RecommendationCard {recommendation} />
-								{:else}
-									<div in:fade>
-										<LoadingCard
-											incomingStream={recommendation}
-										/>
-									</div>
-								{/if}
-							</div>
+							{#if typeof recommendation !== 'string' && recommendation.title}
+								<RecommendationCard {recommendation} />
+							{:else}
+								<div in:fade>
+									<LoadingCard
+										incomingStream={recommendation}
+									/>
+								</div>
+							{/if}
 						{/if}
 					</div>
 				{/each}
