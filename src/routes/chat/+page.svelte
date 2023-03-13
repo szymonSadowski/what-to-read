@@ -142,6 +142,7 @@
 			{/if}
 			{#if recommendations}
 				{#each recommendations as recommendation, i (i)}
+					<div class="h-4" />
 					<div>
 						{#if recommendation !== ''}
 							{#if typeof recommendation !== 'string' && recommendation.title}

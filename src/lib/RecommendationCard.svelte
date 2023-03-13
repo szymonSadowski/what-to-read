@@ -32,12 +32,11 @@
 	}
 	let promise = getRecommendationInfo()
 </script>
-<div class="h-8"/>
 <div>
 	{#await promise}
 		<LoadingCard incomingStream={false} />
 	{:then data}
-		{#if data.docs[0].cover_i}
+		{#if data.docs[0].cover_i && data.docs[0].author_name}
 			<div
 				in:fade
 				class="relative flex flex-col md:flex-row bg-neutral-800/70 shadow-md p-6"
