@@ -85,8 +85,8 @@
 			class={`${
 				loading
 					? 'bg-sky-900'
-					: 'bg-sky-700 hover:bg-gradient-to-r from-sky-700 via-sky-600 to-sky-700 shadow-md shadow-sky-500/50"'
-			} w-full h-10 text-sky-50 font-bold p-3 rounded-s flex items-center justify-center`}
+					: 'bg-sky-700 hover:bg-gradient-to-r from-sky-700 via-sky-600 to-sky-700"'
+			} w-full h-10 text-sky-50 font-bold p-3 rounded-s flex items-center justify-center shadow-md shadow-sky-500/50`}
 		>
 			{#if loading}
 				<LoadingIndicator />
