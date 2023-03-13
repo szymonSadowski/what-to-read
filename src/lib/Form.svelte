@@ -26,7 +26,7 @@
 			What kind of read you are into?
 		</div>
 		<div class="h-4" />
-		<div class="flex items-center gap-2">
+		<div class="flex items-center gap-3">
 			{#each bookTypes as type (type.value)}
 				<button
 					on:click={() => {
@@ -48,14 +48,14 @@
 				Choose categories you want your book to include:
 			</div>
 			<div class="h-4" />
-			<div class="flex items-center flex-wrap gap-2">
+			<div class="flex items-center flex-wrap gap-3">
 				{#each categories as category}
 					<label
 						class={`${
 							selectedCategories.includes(category)
 								? 'bg-sky-700/50 border-sky-900 shadow-md shadow-sky-800/20'
 								: ''
-						} text-sky-50 font-bold mr-2 text-sm py-2 px-4 rounded-sm border border-sky-200 shadow-md shadow-sky-300/20 hover:bg-sky-300/50`}
+						} text-sky-50 font-bold text-sm py-2 px-4 rounded-sm border border-sky-200 shadow-md shadow-sky-300/20 hover:bg-sky-300/50`}
 					>
 						<input
 							class="hidden"
