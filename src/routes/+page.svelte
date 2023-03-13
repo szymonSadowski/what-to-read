@@ -1,12 +1,12 @@
 <section>
 	<div
-		class="flex min-h-screen flex-col items-center justify-center"
+		class="flex min-h-screen flex-col items-center justify-center p-6 md:p-10"
 	>
 		<h2
 			class="text-center font-extrabold text-white text-5xl tracking-tight md:text-8xl"
 		>
 			Don't know what to <span
-				class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-600"
+				class="font-extrabold text-transparent bg-clip-text bg-gradient-to-l from-sky-400 to-sky-600"
 				>read?</span
 			>
 		</h2>
@@ -31,7 +31,7 @@
 		<div class="h-4" />
 		<a
 			href="/chat"
-			class="text-sky-50 bg-sky-700 px-24 py-2 hover:bg-gradient-to-r from-sky-700 via-sky-600 to-sky-700"
+			class="text-sky-50 bg-sky-700 px-24 py-2 rounded-sm hover:bg-gradient-to-r from-sky-700 via-sky-600 to-sky-700 shadow-md shadow-sky-500/50"
 		>
 			Show me
 		</a>

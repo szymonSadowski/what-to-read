@@ -5,7 +5,7 @@
 	const bookSchema = z.object({
 		docs: z.array(
 			z.object({
-				authors: z.array(z.string()).optional(),
+				author_name: z.array(z.string()),
 				cover_i: z.number().optional(),
 				first_publish_year: z.number(),
 				number_of_pages_median: z.number(),
@@ -62,29 +62,41 @@
 					class="z-40 flex flex-col justify-between md:ml-6 pt-32 md:pt-0"
 				>
 					<div>
-						<div class="flex items-end mb-4">
+						<div class="flex items-end">
 							<div
-								class="font-bold text-slate-200 text-3xl"
+								class="font-bold text-white text-3xl"
 							>
 								{recommendation.title}
 								<span
-									class="font-bold text-slate-200/60 text-xl ml-2"
+									class="font-bold text-stone-200/60 text-xl ml-2"
 									>{data.docs[0].first_publish_year}</span
 								>
 							</div>
 						</div>
-						<div class="text-slate-200/90 mb-4">
+						{#if (data.docs[0].author_name).length >= 1}
+						<div class="h-2"/>
+						<div class="flex flex-row gap-2">
+							<span class="text-md text-sky-50/30">by</span>
+							{#each data.docs[0].author_name as author} 
+							<span class="text-md text-sky-50/70">{author}</span>
+							{/each}
+						</div>
+						{/if}
+						<div class="h-4"/>
+						<div class="text-sky-50/80">
 							{recommendation.description}
 						</div>
-						<div class="text-slate-200/50 mb-4">
+						<div class="h-4"/>
+						<div class="text-stone-200/50">
 							Pages: {data.docs[0]
 								.number_of_pages_median}
 						</div>
+					<div class="h-4"/>
 					</div>
 					<div class="flex items-center">
       {#if data.docs[0].ratings_average}
 						<div
-							class="mr-4 py-1 px-2 rounded-full text-white-600 border border-white-600 text-xs"
+							class="py-1 px-2 rounded-sm text-sky-50 border border-sky-200 text-xs"
 						>
 							{data.docs[0].ratings_average}
 						</div>

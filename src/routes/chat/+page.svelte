@@ -5,7 +5,6 @@
 	import LoadingCard from '$lib/LoadingCard.svelte'
 	import RecommendationCard from '$lib/RecommendationCard.svelte'
 
-
 	let loading = false
 	let error = ''
 	let endStream = false
@@ -102,87 +101,65 @@
 		}
 		loading = false
 	}
-	function clearForm() {
-		recommendations = []
-		searchResponse = ''
-		endStream = false
-		bookType = 'book'
-		selectedCategories = []
-		specificDescriptors = ''
-	}
 </script>
 
-<section>
+<section class="min-h-screen  p-6 md:p-10">
+	<div class="h-4" />
 	<h1
-		class="text-center font-extrabold text-black text-5xl tracking-tight md:text-8xl"
+		class="text-center font-extrabold text-white text-5xl tracking-tight md:text-8xl"
 	>
-		What to read
+		What to <span
+			class="font-extrabold text-transparent bg-clip-text bg-gradient-to-l from-sky-400 to-sky-600"
+			>read.</span
+		>
 	</h1>
 	<div class="h-4" />
-	<h3 class="text-center text-black text-2xl md:text-3xl">
-		You don't know what to read?
-	</h3>
-	<div class="h-2" />
-	<h2
-		class="text-center font-semibold text-black text-2xl md:text-4xl"
-	>
-		Great, let <span
-			class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
-			>AI</span
-		> help you
-	</h2>
-</section>
-<div in:fade class="w-full max-w-4xl mx-auto">
-	<div class="w-full mb-8">
-		<Form
-			bind:cinemaType={bookType}
-			bind:selectedCategories
-			bind:loading
-			bind:specificDescriptors
-			on:click={search}
-		/>
-		{#if recommendations.length > 0 && endStream}
-			<button
-				on:click={clearForm}
-				class="bg-yellow/20 mt-4 w-full h-10 text-white font-bold p-3 rounded-full flex items-center justify-center"
-			>
-				Clear Search
-			</button>
-		{/if}
-	</div>
-	<div class="md:pb-20 max-w-4xl mx-auto w-full">
-		{#if loading && !searchResponse && !recommendations}
-			<div
-				class="fontsemibold text-lg text-center mt-8 mb-4"
-			>
-				Thinking...
-			</div>
-		{/if}
-		{#if error}
-			<div
-				class="fontsemibold text-lg text-center mt-8 text-red-500"
-			>
-				Woops! {error}
-			</div>
-		{/if}
-		{#if recommendations}
-			{#each recommendations as recommendation, i (i)}
-				<div>
-					{#if recommendation !== ''}
-						<div class="mb-8">
-							{#if typeof recommendation !== 'string' && recommendation.title}
-								<RecommendationCard {recommendation} />
-							{:else}
-								<div in:fade>
-									<LoadingCard
-										incomingStream={recommendation}
-									/>
-								</div>
-							{/if}
-						</div>
-					{/if}
+	<div in:fade class="w-full max-w-4xl mx-auto">
+		<div class="w-full">
+			<Form
+				bind:cinemaType={bookType}
+				bind:selectedCategories
+				bind:loading
+				bind:specificDescriptors
+				on:click={search}
+			/>
+		</div>
+		<div class="md:pb-20 max-w-4xl mx-auto w-full">
+			{#if loading && !searchResponse && !recommendations}
+				<div class="h-8" />
+				<div
+					class="fontsemibold text-sky-50 text-lg text-center"
+				>
+					Thinking...
 				</div>
-			{/each}
-		{/if}
+			{/if}
+			{#if error}
+				<div class="h-8" />
+				<div
+					class="fontsemibold text-lg text-center text-red-500"
+				>
+					Woops! {error}
+				</div>
+			{/if}
+			{#if recommendations}
+				{#each recommendations as recommendation, i (i)}
+					<div>
+						{#if recommendation !== ''}
+							<div class="mb-8">
+								{#if typeof recommendation !== 'string' && recommendation.title}
+									<RecommendationCard {recommendation} />
+								{:else}
+									<div in:fade>
+										<LoadingCard
+											incomingStream={recommendation}
+										/>
+									</div>
+								{/if}
+							</div>
+						{/if}
+					</div>
+				{/each}
+			{/if}
+		</div>
 	</div>
-</div>
+</section>

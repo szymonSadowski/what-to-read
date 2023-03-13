@@ -1,60 +1,69 @@
 <script>
-	import LoadingIndicator from './Loading.svelte';
-	import { categories } from '../const/categories';
+	import LoadingIndicator from './Loading.svelte'
+	import { categories } from '../const/categories'
 	/**
 	 * @type string
 	 */
-	export let cinemaType;
+	export let cinemaType
 	/**
 	 * @type Array<string>
 	 */
-	export let selectedCategories;
+	export let selectedCategories
 	/**
 	 * @type string
 	 */
-	export let specificDescriptors;
+	export let specificDescriptors
 	/**
 	 * @type Boolean
 	 */
-	export let loading;
+	export let loading
 
 	let bookTypes = [
 		{ value: 'book', title: 'Book' },
 		{ value: 'manga', title: 'Manga' },
-		{ value: 'comic book', title: 'Comic Book' },
-		{ value: 'book, movie or comic book', title: 'Does not matter, just give me something good' }
-	];
+		{ value: 'comic book', title: 'Comic' },
+		{
+			value: 'book, movie or comic book',
+			title: 'Random'
+		}
+	]
 </script>
 
-<div class="pt-6 md:pt-10 text-black">
-	<div>
-		<div class="mb-8">
-			<div class="mb-4 font-semibold text-lg">What kind of read you are into?</div>
-			<div class="flex items-center">
-				{#each bookTypes as type (type.value)}
-					<button
-						on:click={() => {
-							cinemaType = type.value;
-						}}
-						class={`${
-							cinemaType === type.value ? 'bg-slate-600/40' : ''
-						} text-black font-bold mr-2 text-sm mt-2 py-2 px-4 rounded-full border`}
-					>
-						{type.title}
-					</button>
-				{/each}
-			</div>
+		<div class="h-8" />
+		<div class="font-semibold text-lg text-sky-50">
+			What kind of read you are into?
 		</div>
+		<div class="h-4" />
+		<div class="flex items-center gap-2">
+			{#each bookTypes as type (type.value)}
+				<button
+					on:click={() => {
+						cinemaType = type.value
+					}}
+					class={`${
+						cinemaType === type.value
+							? 'bg-sky-700/50 border-sky-900 shadow-md shadow-sky-800/20'
+							: ''
+					} text-sky-50 font-bold text-sm py-2 px-4 rounded-sm border border-sky-200 shadow-md shadow-sky-300/20 hover:bg-sky-300/50`}
+				>
+					{type.title}
+				</button>
+			{/each}
+		</div>
+		<div class="h-8" />
 		<div>
-			<div class="mb-4 font-semibold text-lg">
-				Choose categories you want your book to include
+			<div class="font-semibold text-lg text-sky-50">
+				Choose categories you want your book to include:
 			</div>
-			<div class="flex items-center flex-wrap">
+			<div class="h-4" />
+			<div class="flex items-center flex-wrap gap-2">
 				{#each categories as category}
 					<label
 						class={`${
-							selectedCategories.includes(category) ? 'bg-slate-600/40' : ''
-						} text-black font-bold mr-2 mt-2 text-sm py-2 px-4 rounded-full border`}
+							selectedCategories.includes(category)
+								? 'bg-sky-700/50 border-sky-900 shadow-md shadow-sky-800/20'
+								: ''
+						} text-sky-50 font-bold mr-2 text-sm py-2 px-4 rounded-sm border border-sky-200 shadow-md shadow-sky-300/20 hover:bg-sky-300/50`}
 					>
 						<input
 							class="hidden"
@@ -68,29 +77,28 @@
 				{/each}
 			</div>
 		</div>
-		<div class="mt-8">
-			<div class="mb-4 font-semibold text-lg">
-				Tell us more to give you the best list possible!
-			</div>
-			<textarea
-				bind:value={specificDescriptors}
-				class="bg-white/40 border border-white/0 p-2 rounded-md placeholder:text-slate-800 text-slate-900 w-full h-20 font-medium"
-				placeholder="For example: Polish as original language and at least 4 books in the series"
-			/>
-			<button
-				on:click
-				class={`${
-					loading
-						? 'bg-slate-600'
-						: 'bg-slate-300 hover:bg-gradient-to-r from-slate-700 via-slate-600 to-slate-700 '
-				} mt-4 w-full h-10 text-white font-bold p-3 rounded-full flex items-center justify-center`}
-			>
-				{#if loading}
-					<LoadingIndicator />
-				{:else}
-					<p>Find me a good read!</p>
-				{/if}
-			</button>
+		<div class="h-8" />
+		<div class="font-semibold text-lg text-sky-50">
+			Tell us more to give you the best list possible!
 		</div>
-	</div>
-</div>
+		<div class="h-4" />
+		<textarea
+			bind:value={specificDescriptors}
+			class="w-full h-20 text-sky-50 text-sm py-2 px-4 rounded-sm border border-sky-200 shadow-md shadow-sky-300/20 bg-stone-900 placeholder:text-sky-50/30"
+			placeholder="For example: Polish as original language and at least 4 books in the series"
+		/>
+		<div class="h-8" />
+		<button
+			on:click
+			class={`${
+				loading
+					? 'bg-sky-900'
+					: 'bg-sky-700 hover:bg-gradient-to-r from-sky-700 via-sky-600 to-sky-700 shadow-md shadow-sky-500/50"'
+			} w-full h-10 text-sky-50 font-bold p-3 rounded-s flex items-center justify-center`}
+		>
+			{#if loading}
+				<LoadingIndicator />
+			{:else}
+				<p>Find me a good read!</p>
+			{/if}
+		</button>
